@@ -1,0 +1,53 @@
+/* Contenedor horizontal a pantalla completa */
+.page {
+  height: 100dvh;
+}
+
+.page--horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: contain;
+}
+
+/* Cada sección ocupa “una pantalla” y encaja al inicio */
+.section {
+  scroll-snap-align: start;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Ejemplo: galería con scroll vertical interno */
+.section--gallery {
+  padding: 0; /* la galería controla su propio padding */
+}
+
+/* Si tu componente de galería expone un contenedor scrollable vertical */
+.section--gallery .gallery-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  padding: 40px 24px;
+}
+
+/* Opcional: estilizar la barra horizontal */
+.page--horizontal::-webkit-scrollbar {
+  height: 10px;
+}
+.page--horizontal::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.06);
+}
+.page--horizontal::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.2);
+  border-radius: 8px;
+}

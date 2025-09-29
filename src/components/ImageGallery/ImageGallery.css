@@ -1,0 +1,31 @@
+/* CONTENEDOR HORIZONTAL — permitir scroll propio */
+.gallery--horizontal {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  height: 100%;
+
+  /* 🔧 fixes clave */
+  overflow-x: auto;        /* antes: visible */
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: contain;
+  touch-action: pan-x;     /* en móvil prioriza gesto horizontal */
+}
+
+/* Ítems “paginables” */
+.gallery__item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #1e293b;
+  min-width: 400px;
+  height: 600px;
+  flex-shrink: 0;
+  scroll-snap-align: start; /* encaje suave */
+}
+
+/* ...el resto de tus reglas se queda igual... */
